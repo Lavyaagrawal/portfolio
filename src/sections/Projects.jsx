@@ -121,7 +121,7 @@ export default function Projects() {
         </h2>
 
         {/* Main Project Display Area */}
-        <div className={`relative w-full flex-1 flex items-center justify-center ${isMobile ? "-mt-4" : ""}`}>
+        <div className={`relative w-full flex-1 flex flex-col items-center justify-center ${isMobile ? "-mt-4" : ""}`}>
           {projects.map((project, idx) => (
             <div
               key={project.title}
@@ -130,7 +130,7 @@ export default function Projects() {
               }`}
               style={{ width: "85%", maxWidth: "1200px" }}
             >
-              {/* Animate project title when switching */}
+              {/* Animate project title when switching - positioned above image */}
               <AnimatePresence mode="wait">
                 {activeIndex === idx && (
                   <MH3
@@ -139,10 +139,10 @@ export default function Projects() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 30 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
-                    className={`block text-center text-[clamp(2rem,6vw,5rem)] text-white/95 sm:absolute sm:-top-21 sm:left-[35%] lg:left-[-5%] sm:mb-0 font-bangers italic font-semibold ${
-                      isMobile ? "-mt-25" : ""
+                    className={`block text-center text-[clamp(1.8rem,5vw,4rem)] text-white/95 font-bangers italic font-semibold ${
+                      isMobile ? "mb-4 -mt-8" : "mb-6"
                     }`}
-                    style={{ zIndex: 5, textAlign: isMobile ? "center" : "left" }}
+                    style={{ zIndex: 5, textAlign: isMobile ? "center" : "center" }}
                   >
                     {project.title}
                   </MH3>
@@ -153,14 +153,14 @@ export default function Projects() {
               <div
                 className={`relative w-full overflow-hidden bg-black/20 shadow-2xl md:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.7)] ${
                   isMobile ? "mb-6 rounded-lg" : "mb-10 sm:mb-12 rounded-xl"
-} h-[50vh] sm:h-[66vh]`}
+} h-[40vh] sm:h-[55vh] md:h-[60vh]`}
                 style={{ zIndex: 10, transition: "box-shadow 250ms ease" }}
               >
                 {/* Project Image */}
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover drop-shadow-xl md:drop-shadow-2xl"
+                  className="w-full h-full object-cover drop-shadow-xl md:drop-shadow-2xl object-center"
                   style={{
                     position: "relative",
                     zIndex: 10,
