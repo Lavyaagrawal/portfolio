@@ -111,7 +111,7 @@ const MusicPlayer = () => {
 
     // Dev-time diagnostics (optional; remove in prod)
     const onError = () => {
-      // eslint-disable-next-line no-console
+       
       console.warn("Audio error loading/playing:", audio.error);
     };
     audio.addEventListener("error", onError);
